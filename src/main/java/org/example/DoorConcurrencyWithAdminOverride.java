@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DoorConcurrencyWithAdminOverride {
+//    main
     private static final int NUM_DOORS = 5;
 
     public static void main(String[] args) throws InterruptedException {
