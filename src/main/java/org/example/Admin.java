@@ -10,4 +10,22 @@ class Admin implements User {
             door.setAdminOverride(false); // Admin releases control
         }
     }
+
+    public void lockDoor(Door door) throws InterruptedException {
+
+        synchronized (door){
+            System.out.println("door is locked by admin ");
+             door.lockDoor();
+        }
+
+    }
+
+    public void unlockDoor(Door door) throws InterruptedException {
+
+        synchronized (door){
+            System.out.println("door is unlocked by admin ");
+            door.unlockDoor();
+        }
+
+    }
 }
