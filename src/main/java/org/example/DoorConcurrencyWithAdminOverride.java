@@ -25,7 +25,13 @@ public class DoorConcurrencyWithAdminOverride {
         // Create threads for normal users and admins for each door
         for (Door door : doors) {
             Thread normalUserThread = new Thread(() -> normalUser.accessDoor(door));
-            Thread adminThread = new Thread(() -> admin.accessDoor(door));
+            Thread adminThread = new Thread(() -> {
+                try {
+                    admin.accessDoor(door);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            });
             Thread adminLockThread = new Thread(() -> {
                 try {
                     admin.lockDoor(door);

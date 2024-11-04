@@ -1,4 +1,6 @@
 package org.example;
+import java.util.concurrent.locks.ReentrantLock;
+
 class Door {
     private String id;
     private boolean isOpen;
